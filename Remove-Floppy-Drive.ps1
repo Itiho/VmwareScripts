@@ -10,7 +10,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 Import-Module VMware.VimAutomation.Vds  
 Add-PSSnapin VMware.VimAutomation.Core
 
-
+Connect-VIServer
 
 $off = Get-VM | where {$_.powerstate -eq "PoweredOff"}
 $floppy = Get-FloppyDrive -VM $off
