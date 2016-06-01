@@ -1,4 +1,12 @@
-﻿Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+﻿#########################################################################################
+# Purpose : Change the VMware Tools Upgrade Policy Settings to  UpgradeAtPowerCycle     #
+# Descrição: Muda a configuração de atualização do VMware Tolls na inicialização da VM  #
+# Version: 1.0                                                                          #
+# Author  : Willian Itiho Amano - itihoitiho@gmail.com                                  #
+# Release Date: 01/06/2016                                                              # 
+#########################################################################################
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 Add-PSSnapin VMware.VimAutomation.Core
 
 Connect-VIServer

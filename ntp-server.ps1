@@ -1,10 +1,19 @@
-﻿Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+﻿#########################################################################################
+# Purpose : Configure and show NTP server in Hosts                                      #
+# Descrição: Configura e mostra os servidores de NTP dos Hosts                          #
+# Version: 1.0                                                                          #
+# Author  : Willian Itiho Amano - itihoitiho@gmail.com                                  #
+# Release Date: 01/06/2016                                                              # 
+#########################################################################################
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 Import-Module VMware.VimAutomation.Vds  
 Add-PSSnapin VMware.VimAutomation.Core
 
 Connect-VIServer
 
-#Altera NTPS
+#Change de NTP Servers
+#Altera os servidores NTPS
 $vmhosts = Get-VMHost
 
 foreach ($vmhost in $vmhosts ) {
@@ -20,9 +29,8 @@ foreach ($vmhost in $vmhosts ) {
 
 
 
-
+#List NTPS Servers
 #Lista NTPS
-
 $vmhosts = Get-VMHost |Sort-Object
 foreach ($vmhost in $vmhosts ) {
     #echo $vmhost.name
