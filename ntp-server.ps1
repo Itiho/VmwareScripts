@@ -13,7 +13,7 @@ foreach ($vmhost in $vmhosts ) {
     foreach  ($ntp in $ntps ) {
         Remove-VMHostNtpServer -NtpServer $ntp -VMHost $vmhost -Confirm:$false
     }
-    Add-VmHostNtpServer -NtpServer "<IP servidor NTP>" -VMHost $vmhost
+    Add-VmHostNtpServer -NtpServer "pool.ntp.br" -VMHost $vmhost
     Get-VmHostService -VMHost $vmhost | Where-Object {$_.key -eq "ntpd"} | Set-VMHostService -policy "automatic"
     Get-VmHostService -VMHost $vmhost | Where-Object {$_.key -eq "ntpd"} | Restart-VMHostService -Confirm:$false
 }
@@ -25,6 +25,6 @@ foreach ($vmhost in $vmhosts ) {
 
 $vmhosts = Get-VMHost |Sort-Object
 foreach ($vmhost in $vmhosts ) {
-    echo $vmhost.name
+    #echo $vmhost.name
     Get-VMHostNtpServer -VMHost $vmhost
 }
