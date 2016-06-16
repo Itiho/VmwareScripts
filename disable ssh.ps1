@@ -15,6 +15,6 @@ Connect-VIServer
 $vmhosts = Get-VMHost 
 
 foreach ($vmhost in $vmhosts ) {
-    Get-VmHostService -VMHost 10.0.10.60 | Where-Object {$_.key -eq "TSM-SSH"} |  Set-VMHostService -policy "off"
+    Get-VmHostService -VMHost $vmhost | Where-Object {$_.key -eq "TSM-SSH"} |  Set-VMHostService -policy "off"
     Get-VmHostService -VMHost $vmhost | Where-Object {$_.key -eq "TSM-SSH"} | Stop-VMHostService -Confirm:$false
 }
