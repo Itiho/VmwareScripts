@@ -1,0 +1,5 @@
+
+
+#Atualiza versão do hardware v10, v11,v13 (dependendo da versão do esxi)
+
+Get-Cluster <clusterName>| Get-VM | where {$_.powerstate -eq "PoweredOff"} |Set-VM -Version v13  -Confirm:$false
