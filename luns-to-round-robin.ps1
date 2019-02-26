@@ -1,5 +1,5 @@
 #Change all LUNs to Round Robin
-
+#Fonte: https://www.jasonpearce.com/2012/12/02/using-powercli-to-change-all-luns-to-round-robin/
 
 #Conecta ao vcenter
 Connect-VIServer vcenter.domain.local
